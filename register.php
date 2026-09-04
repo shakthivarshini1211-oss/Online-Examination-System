@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+<?php
+include "db.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+$name = $_POST["name"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+$sql = "INSERT INTO students (name,email,password)
+VALUES ('$name' , '$email' , '$password')";
+
+if (mysqli_query($conn,$sql)){
+    echo "REgistration successful!";
+}else{
+    echo "REgistration failed!";
+}
+}
+  ?>  
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
